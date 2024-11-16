@@ -1,0 +1,26 @@
+cs_console
+enable
+emPFRkjbE9c3
+configure terminal
+crypto identity DN-MVD-III-III-III
+dn CN=uUUUU,O=BELTELECOM,OU=RSMOB,1.2.840.113549.1.9.1=uUUUU@rsmob.beltelecom.by
+exit
+ip local pool MVD-III-III-III XX.XXX.XXX.XXX
+ip access-list extended ACL-MVD-III-III-III
+permit ip host 10.253.4.200 host XX.XXX.XXX.XXX
+exit
+crypto dynamic-map DMAP DDD
+match address ACL-MVD-III-III-III
+set transform-set TSET 
+set pfs beltdh
+set pool MVD-III-III-III
+set identity DN-MVD-III-III-III
+reverse-route
+exit
+exit
+disable
+
+������ III-III-III
+������ uUUUU
+������ XX.XXX.XXX.XXX
+������ DMAP DDD
